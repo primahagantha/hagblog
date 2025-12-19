@@ -88,7 +88,7 @@ flowchart TB
         Routes["🛣️ Routes"]
         Controllers["🎮 Controllers"]
         ServiceLayer["📦 Services"]
-        Prisma["🗄️ Prisma ORM"]
+        drizzle["🗄️ drizzle ORM"]
     end
 
     subgraph External["☁️ External Services"]
@@ -104,9 +104,9 @@ flowchart TB
     
     Routes --> Controllers
     Controllers --> ServiceLayer
-    ServiceLayer --> Prisma
+    ServiceLayer --> drizzle
     
-    Prisma --> DB
+    drizzle --> DB
     Server --> BetterAuth
     Server --> Cloudinary
 ```
@@ -168,14 +168,14 @@ CORS_ORIGIN="http://localhost:3000"
 ```bash
 cd server
 
-# Generate Prisma client
-bunx prisma generate
+# Generate drizzle client
+bunx drizzle generate
 
 # Run migrations
-bunx prisma migrate dev
+bunx drizzle migrate dev
 
 # (Optional) Seed with sample data
-bunx prisma db seed
+bunx drizzle db seed
 ```
 
 ### 4️⃣ Start Development
@@ -211,7 +211,7 @@ hagblog/
 │   └── 📂 services/          # API service layer
 │
 ├── 📂 server/                 # Backend API
-│   ├── 📂 prisma/            # Database schema & migrations
+│   ├── 📂 drizzle/            # Database schema & migrations
 │   └── 📂 src/
 │       ├── 📂 controllers/   # Route controllers
 │       ├── 📂 services/      # Business logic
@@ -343,7 +343,7 @@ Content-Type: application/json
 ### Backend
 - **Bun** - JavaScript runtime
 - **Better Auth** - Authentication
-- **Prisma** - Database ORM
+- **drizzle** - Database ORM
 - **PostgreSQL** - Database
 
 ---
