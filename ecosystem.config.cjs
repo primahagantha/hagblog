@@ -1,13 +1,17 @@
-// PM2 Ecosystem Configuration for Dewacloud
-// Run both backend API and frontend SSR in one Node.js container
+// PM2 Ecosystem Configuration
+// Works for both Windows (local) and Linux (Dewacloud)
+
+const isWindows = process.platform === 'win32';
+const basePath = isWindows ? 'D:/production/blog' : '/home/jelastic/ROOT';
+const logsPath = isWindows ? 'D:/production/blog/logs' : '/home/jelastic/logs';
 
 module.exports = {
   apps: [
     // Backend API Server
     {
       name: 'hagblog-api',
-      script: 'server/dist/index.js',
-      cwd: '/home/jelastic/ROOT',
+      script: isWindows ? 'dist/index.js' : 'server/dist/index.js',
+      cwd: isWindows ? `${basePath}/server` : basePath,
       instances: 1,
       exec_mode: 'fork',
       autorestart: true,
@@ -17,8 +21,8 @@ module.exports = {
         NODE_ENV: 'production',
         PORT: 3001
       },
-      error_file: '/var/log/pm2/hagblog-api-error.log',
-      out_file: '/var/log/pm2/hagblog-api-out.log',
+      error_file: `${logsPath}/hagblog-api-error.log`,
+      out_file: `${logsPath}/hagblog-api-out.log`,
       merge_logs: true,
       time: true
     },
@@ -27,7 +31,7 @@ module.exports = {
     {
       name: 'hagblog-web',
       script: '.output/server/index.mjs',
-      cwd: '/home/jelastic/ROOT',
+      cwd: basePath,
       instances: 1,
       exec_mode: 'fork',
       autorestart: true,
@@ -38,22 +42,10 @@ module.exports = {
         NUXT_HOST: '0.0.0.0',
         NUXT_PORT: 3000
       },
-      error_file: '/var/log/pm2/hagblog-web-error.log',
-      out_file: '/var/log/pm2/hagblog-web-out.log',
+      error_file: `${logsPath}/hagblog-web-error.log`,
+      out_file: `${logsPath}/hagblog-web-out.log`,
       merge_logs: true,
       time: true
     }
-  ],
-
-  // Deployment configuration (optional)
-  deploy: {
-    production: {
-      user: 'jelastic',
-      host: 'your-node-ip',
-      ref: 'origin/main',
-      repo: 'git@github.com:yourusername/hagblog.git',
-      path: '/home/jelastic/ROOT',
-      'post-deploy': 'npm install && npm run build && cd server && npm install && npm run build && pm2 reload ecosystem.config.cjs --env production'
-    }
-  }
+  ]
 };
