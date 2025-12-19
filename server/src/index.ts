@@ -33,7 +33,10 @@ app.use(compression());
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   "http://localhost:3000",
-  "http://127.0.0.1:3000"
+  "http://127.0.0.1:3000",
+  // Dewacloud production domains
+  "https://node71826-hagblog.user.cloudjkt01.com",
+  "https://hagblog.user.cloudjkt01.com",
 ].filter(Boolean) as string[];
 
 app.use(

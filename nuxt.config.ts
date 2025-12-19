@@ -72,5 +72,12 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+
+  // Route rules - proxy /api to backend (avoids CORS)
+  routeRules: {
+    '/api/**': { 
+      proxy: { to: 'http://localhost:3001/api/**' }
+    }
   }
 })
