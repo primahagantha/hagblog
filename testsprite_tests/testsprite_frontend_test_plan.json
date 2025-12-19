@@ -1,0 +1,662 @@
+[
+  {
+    "id": "TC001",
+    "title": "User Registration with Email Verification",
+    "description": "Verify that a user can register successfully with valid credentials and complete email verification process.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the registration page."
+      },
+      {
+        "type": "action",
+        "description": "Fill out the registration form with valid email, username, and password."
+      },
+      {
+        "type": "action",
+        "description": "Submit the registration form."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that a verification email is sent to the registered email."
+      },
+      {
+        "type": "action",
+        "description": "Open verification link from the email."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that the email verification completes and user status is updated to verified."
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "User Login Success with Correct Credentials",
+    "description": "Ensure a registered verified user can log in successfully using valid credentials.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the login page."
+      },
+      {
+        "type": "action",
+        "description": "Enter valid registered email and password."
+      },
+      {
+        "type": "action",
+        "description": "Click the login button."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm login is successful and user is redirected to the appropriate user dashboard/homepage."
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "User Login Failure with Incorrect Credentials",
+    "description": "Verify the system denies login and shows appropriate error message when credentials are incorrect.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the login page."
+      },
+      {
+        "type": "action",
+        "description": "Enter an invalid email or password."
+      },
+      {
+        "type": "action",
+        "description": "Click the login button."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that login is rejected with a clear error message."
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Password Reset via Email",
+    "description": "Validate the password reset flow including request, email delivery, and password update.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the password reset page."
+      },
+      {
+        "type": "action",
+        "description": "Submit a registered email to request password reset."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm reset email is sent."
+      },
+      {
+        "type": "action",
+        "description": "Open password reset link from the email."
+      },
+      {
+        "type": "action",
+        "description": "Enter and confirm new valid password."
+      },
+      {
+        "type": "action",
+        "description": "Submit the new password."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the password is successfully updated; user can login with new password."
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Create and Publish a New Blog Post with SEO Metadata and Featured Image",
+    "description": "Test creation, editing, saving as draft, and publishing of a new blog post with SEO fields and featured image upload.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Admin or Blogger."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the new post creation page."
+      },
+      {
+        "type": "action",
+        "description": "Enter post title, content using rich text and markdown editors."
+      },
+      {
+        "type": "action",
+        "description": "Set SEO metadata including meta title, description, and keywords."
+      },
+      {
+        "type": "action",
+        "description": "Upload and set a featured image using Cloudinary integration."
+      },
+      {
+        "type": "action",
+        "description": "Save the post as draft."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify post is saved as draft and can be edited later."
+      },
+      {
+        "type": "action",
+        "description": "Publish the post immediately."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm post is published and visible publicly with SEO data in metadata."
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Schedule Blog Post Publication",
+    "description": "Verify the ability to schedule a blog post for future publication.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Blogger or Admin."
+      },
+      {
+        "type": "action",
+        "description": "Create a new post and enter all required content and SEO metadata."
+      },
+      {
+        "type": "action",
+        "description": "Set a future date and time for publication using scheduling feature."
+      },
+      {
+        "type": "action",
+        "description": "Save and confirm the post is scheduled."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that the post is not publicly visible before scheduled time."
+      },
+      {
+        "type": "assertion",
+        "description": "After the scheduled date/time, confirm the post is published automatically."
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Edit and Update Existing Blog Post",
+    "description": "Validate editing an existing published post and ensure updates are reflected immediately.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Blogger or Admin."
+      },
+      {
+        "type": "action",
+        "description": "Open an existing post from the admin posts list."
+      },
+      {
+        "type": "action",
+        "description": "Modify content, update SEO metadata and optionally change the featured image."
+      },
+      {
+        "type": "action",
+        "description": "Save and publish the changes."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the updated post content, metadata, and images are displayed correctly in the public view."
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Delete Blog Post",
+    "description": "Check that a blog post can be deleted permanently with confirmation dialog.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Admin or Blogger."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the posts management page."
+      },
+      {
+        "type": "action",
+        "description": "Select a post and click the delete action."
+      },
+      {
+        "type": "action",
+        "description": "Confirm deletion in the confirmation dialog."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the post no longer appears in the posts list and is not accessible publicly."
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Role-Based Access Control for Admin, Blogger, and User",
+    "description": "Verify that users with different roles can only access their permitted features and routes.",
+    "category": "security",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Admin and attempt to access all admin features including user management, audit logs, and settings."
+      },
+      {
+        "type": "assertion",
+        "description": "Access should be granted for all admin features."
+      },
+      {
+        "type": "action",
+        "description": "Logout and login as Blogger."
+      },
+      {
+        "type": "action",
+        "description": "Try to access admin-only areas like user management and system settings."
+      },
+      {
+        "type": "assertion",
+        "description": "Access should be denied with proper authorization error."
+      },
+      {
+        "type": "action",
+        "description": "Verify Blogger can create, edit, and publish posts, but cannot manage users or settings."
+      },
+      {
+        "type": "action",
+        "description": "Login as User role and verify access to only profile management and viewing posts, not editing or admin areas."
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure unauthorized access pages are blocked properly."
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Add Nested Comments Including Guest Comments",
+    "description": "Verify that users and guests can add nested comments and that guests provide basic local info.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to a published blog post."
+      },
+      {
+        "type": "action",
+        "description": "As a logged-in user, add a top-level comment."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify comment appears under the post."
+      },
+      {
+        "type": "action",
+        "description": "Reply to a comment to create nested comments."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify nested comment is displayed properly indented."
+      },
+      {
+        "type": "action",
+        "description": "As a guest user, enter name and email locally and add a comment."
+      },
+      {
+        "type": "assertion",
+        "description": "Guest comment should appear and guest info should be stored locally."
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Comment Moderation and Status Filtering by Admin",
+    "description": "Test inline moderation actions like approve, reject, and delete with status filtering options.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Admin."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the comments management page."
+      },
+      {
+        "type": "action",
+        "description": "Filter comments by status (pending, approved, rejected)."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify comments are filtered accurately."
+      },
+      {
+        "type": "action",
+        "description": "Perform moderation actions: approve, reject, or delete on selected comments."
+      },
+      {
+        "type": "assertion",
+        "description": "Check the comment statuses update accordingly and are reflected in the public view."
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Admin Dashboard Analytics Display",
+    "description": "Verify that the admin dashboard shows accurate analytics data including user activity and content statistics.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Admin."
+      },
+      {
+        "type": "action",
+        "description": "Open the admin dashboard."
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure statistics for active users, published posts, comments counts, and recent activities are displayed."
+      },
+      {
+        "type": "assertion",
+        "description": "Validate charts and data refresh correctly on dashboard load and interaction."
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Full-Text Search with Debounced Input and Filtering",
+    "description": "Test blog post search functionality covering debounced input, result highlighting, and filtering by category and tags.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the search page."
+      },
+      {
+        "type": "action",
+        "description": "Type search keywords slowly and observe debounce functionality."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that search results update only after the debounce delay."
+      },
+      {
+        "type": "action",
+        "description": "Apply category and tag filters to the search."
+      },
+      {
+        "type": "assertion",
+        "description": "Check search results are accurately filtered."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that keywords in results are highlighted."
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Newsletter Subscription with Double Opt-In",
+    "description": "Verify the newsletter subscription process including submission, double opt-in email verification, and admin management.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Access the public newsletter subscription form."
+      },
+      {
+        "type": "action",
+        "description": "Enter a valid email and submit."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify subscription request triggers a confirmation email for double opt-in."
+      },
+      {
+        "type": "action",
+        "description": "Open and confirm subscription via link in email."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify subscriber status is active after confirmation."
+      },
+      {
+        "type": "action",
+        "description": "Login as Admin and navigate to subscriber management."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that the new subscriber appears in the list with correct status."
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Image and File Upload with Cloudinary Integration",
+    "description": "Test file upload functionality during post creation with Cloudinary optimizing images and CDN delivery.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Blogger or Admin."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to new post creation or editing page."
+      },
+      {
+        "type": "action",
+        "description": "Upload an image or file using inline upload interface."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify upload completes successfully and image is optimized by Cloudinary."
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure the uploaded image is delivered via CDN URL."
+      },
+      {
+        "type": "action",
+        "description": "Insert the uploaded image inline within post content."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the image appears correctly in the post preview."
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "SEO Features Including JSON-LD, Sitemap, and robots.txt",
+    "description": "Validate SEO optimizations such as presence of structured data, accessible sitemap.xml, and correct robots.txt file.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to a published blog post."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm JSON-LD structured data is present in the page source and matches post metadata."
+      },
+      {
+        "type": "action",
+        "description": "Access /sitemap.xml URL."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify sitemap contains URLs of all published posts with correct timestamps."
+      },
+      {
+        "type": "action",
+        "description": "Access /robots.txt URL."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that robots.txt is accessible and correctly configured to allow/disallow paths."
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "User Management by Admin with Role Assignment",
+    "description": "Ensure admins can view user list, change roles, disable or delete users, and that changes are enforced immediately.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Admin."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to user management page."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user list displays all registered users with current roles."
+      },
+      {
+        "type": "action",
+        "description": "Change a user's role to Blogger or User."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm the role update is saved and reflected in the interface."
+      },
+      {
+        "type": "action",
+        "description": "Disable and delete a user."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user loses access immediately and does not appear in active lists."
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Audit Logs Display and Filtering in Admin",
+    "description": "Test the admin audit log page for accurate tracking of user actions with filtering and search capabilities.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Admin."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the audit logs page."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that recent user activities are listed with correct timestamps and descriptions."
+      },
+      {
+        "type": "action",
+        "description": "Use filters or search to find specific user actions."
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm filtering works correctly and logs are updated in real-time when new actions occur."
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "Site-Wide Settings Configuration and Persistence",
+    "description": "Verify admins can update site-wide settings and changes persist across sessions and application restarts.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Admin."
+      },
+      {
+        "type": "action",
+        "description": "Open the site settings management page."
+      },
+      {
+        "type": "action",
+        "description": "Change settings such as blog title, default SEO parameters, or newsletter configurations."
+      },
+      {
+        "type": "action",
+        "description": "Save the changes."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that the changes are immediately reflected in relevant parts of the blog."
+      },
+      {
+        "type": "assertion",
+        "description": "Restart the application and confirm settings persist."
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "Data Export for Posts and Content",
+    "description": "Validate that admins can export blog posts and other content data correctly in supported formats.",
+    "category": "functional",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login as Admin."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to data export page."
+      },
+      {
+        "type": "action",
+        "description": "Select export options for posts, comments, or other content."
+      },
+      {
+        "type": "action",
+        "description": "Initiate export."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify completed export file is generated, downloadable, and contains expected data."
+      }
+    ]
+  }
+]

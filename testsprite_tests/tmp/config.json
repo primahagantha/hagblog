@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "loginUser": "blogger1@hagblog.com",
+  "loginPassword": "admin123",
+  "executionArgs": {
+    "projectName": "blog",
+    "projectPath": "d:\\production\\blog",
+    "testIds": [],
+    "additionalInstruction": "",
+    "envs": {
+      "API_KEY": "sk-user-PgZ4zcefaE3nEN7v9qYG4LJlLodtYi2aiqggYIFB1QmSMc-mu1SU80yZsUidXhHrM3oT3DaguN9yXbPoah7tDlLlGcBzLSJs5VWRl56rrFsaKUBfNBDdsyb6wCBSReR9gfs"
+    }
+  },
+  "proxy": "http://e5a267c3-ee15-48bd-b646-396620d94199:MCu46fbxUat0FR9C0GkAw0cvDp05YXGC@tun.testsprite.com:8080"
+}

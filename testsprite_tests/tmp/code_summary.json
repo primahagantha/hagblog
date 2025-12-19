@@ -1,0 +1,156 @@
+{
+  "tech_stack": [
+    "TypeScript",
+    "Vue 3",
+    "Nuxt 4",
+    "Express.js",
+    "PostgreSQL",
+    "Drizzle ORM",
+    "TanStack Vue Query",
+    "VueUse",
+    "Better Auth",
+    "Zod",
+    "Cloudinary"
+  ],
+  "features": [
+    {
+      "name": "Authentication",
+      "description": "User authentication system with login, registration, and session management using Better Auth",
+      "files": [
+        "app/composables/useAuth.ts",
+        "app/pages/admin/login.vue",
+        "app/middleware/auth.global.ts",
+        "server/src/auth.ts"
+      ]
+    },
+    {
+      "name": "Blog Posts",
+      "description": "Complete blog post management including CRUD operations, publishing, drafts, view counts, and featured images",
+      "files": [
+        "app/composables/usePosts.ts",
+        "app/services/posts.ts",
+        "app/pages/index.vue",
+        "app/pages/[...slug].vue",
+        "app/pages/blog/index.vue",
+        "app/pages/admin/posts/index.vue",
+        "app/pages/admin/posts/new.vue",
+        "app/pages/admin/posts/[id]/edit.vue"
+      ]
+    },
+    {
+      "name": "Categories",
+      "description": "Category management for organizing blog posts with CRUD operations",
+      "files": [
+        "app/composables/useCategories.ts",
+        "app/services/categories.ts",
+        "app/pages/category/[slug].vue",
+        "app/pages/admin/categories.vue"
+      ]
+    },
+    {
+      "name": "Tags",
+      "description": "Tag system for labeling and filtering blog posts",
+      "files": [
+        "app/composables/useTags.ts",
+        "app/services/tags.ts",
+        "app/pages/tag/[slug].vue"
+      ]
+    },
+    {
+      "name": "Comments",
+      "description": "Comment system for blog posts with moderation capabilities",
+      "files": [
+        "app/composables/useComments.ts",
+        "app/services/comments.ts",
+        "app/pages/admin/comments.vue"
+      ]
+    },
+    {
+      "name": "Search",
+      "description": "Full-text search functionality for blog posts with debounced queries",
+      "files": [
+        "app/composables/useSearch.ts",
+        "app/services/search.ts",
+        "app/pages/search.vue"
+      ]
+    },
+    {
+      "name": "User Management",
+      "description": "Admin user management with roles (admin, blogger) and profile settings",
+      "files": [
+        "app/composables/useUsers.ts",
+        "app/services/users.ts",
+        "app/pages/admin/users.vue"
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "description": "Admin dashboard with statistics and analytics overview",
+      "files": [
+        "app/composables/useDashboard.ts",
+        "app/services/dashboard.ts",
+        "app/pages/admin/index.vue"
+      ]
+    },
+    {
+      "name": "Audit Logs",
+      "description": "Activity logging system for tracking user actions and changes",
+      "files": [
+        "app/composables/useAuditLogs.ts",
+        "app/services/auditLogs.ts",
+        "app/pages/admin/log.vue"
+      ]
+    },
+    {
+      "name": "Settings",
+      "description": "Site-wide settings management for configuration",
+      "files": [
+        "app/composables/useSettings.ts",
+        "app/services/settings.ts",
+        "app/pages/admin/settings.vue"
+      ]
+    },
+    {
+      "name": "File Upload",
+      "description": "Image and file upload functionality with Cloudinary integration",
+      "files": [
+        "app/composables/useUpload.ts",
+        "app/composables/useCloudinary.ts",
+        "app/services/upload.ts"
+      ]
+    },
+    {
+      "name": "Newsletter",
+      "description": "Newsletter subscription management",
+      "files": [
+        "app/composables/useNewsletter.ts",
+        "app/services/newsletter.ts"
+      ]
+    },
+    {
+      "name": "Export",
+      "description": "Data export functionality for posts and content",
+      "files": [
+        "app/composables/useExport.ts",
+        "app/services/export.ts"
+      ]
+    },
+    {
+      "name": "SEO",
+      "description": "SEO optimization with JSON-LD structured data, sitemap, and robots.txt",
+      "files": [
+        "app/composables/useJsonLd.ts",
+        "nuxt.config.ts"
+      ]
+    },
+    {
+      "name": "Admin Layout",
+      "description": "Admin dashboard layout with sidebar navigation and user dropdown",
+      "files": [
+        "app/layouts/admin.vue",
+        "app/components/layout/AdminSidebar.vue",
+        "app/components/layout/AdminNavbar.vue"
+      ]
+    }
+  ]
+}

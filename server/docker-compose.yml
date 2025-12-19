@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: hagblog-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: hagblog
+      POSTGRES_PASSWORD: hagblog123
+      POSTGRES_DB: hagblog
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hagblog -d hagblog"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
