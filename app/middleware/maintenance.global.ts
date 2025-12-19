@@ -22,10 +22,8 @@ export default defineNuxtRouteMiddleware(async (to) => {
   }
 
   try {
-    const config = useRuntimeConfig()
-    
-    // Fetch public settings to check maintenance status
-    const res = await fetch(`${config.public.apiBaseUrl}/api/settings/public`)
+    // Fetch public settings to check maintenance status (client-side, use relative URL)
+    const res = await fetch('/api/settings/public')
     if (!res.ok) return // Don't block if settings fetch fails
     
     const settings = await res.json()

@@ -57,13 +57,11 @@ export const usersService = {
    * Upload/update user avatar
    */
   async uploadAvatar(userId: string, file: File): Promise<{ message: string; image: string }> {
-    const config = useRuntimeConfig()
-    const baseUrl = config.public.apiBaseUrl as string
-    
     const formData = new FormData()
     formData.append('avatar', file)
     
-    const response = await fetch(`${baseUrl}/api/users/${userId}/avatar`, {
+    // Use relative URL for client-side fetch (proxied by Nitro)
+    const response = await fetch(`/api/users/${userId}/avatar`, {
       method: 'PUT',
       credentials: 'include',
       body: formData,

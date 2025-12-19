@@ -294,7 +294,11 @@ export const api = new ApiClient()
 // Composable to initialize API with runtime config
 export function useApi() {
   const config = useRuntimeConfig()
-  api.setBaseUrl(config.public.apiBaseUrl as string)
+  // In production, use empty string so requests go to same origin (proxied by Nitro)
+  // In development or SSR, can use the configured baseUrl
+  const isServer = typeof window === 'undefined'
+  const baseUrl = isServer ? 'http://localhost:3001' : ''
+  api.setBaseUrl(baseUrl)
   return api
 }
 

@@ -7,10 +7,8 @@ export type ExportEntity = 'posts' | 'comments' | 'users' | 'audit-logs'
  * Download helper - triggers browser download
  */
 async function downloadBlob(url: string, filename: string): Promise<void> {
-  const config = useRuntimeConfig()
-  const baseUrl = config.public.apiBaseUrl as string
-  
-  const response = await fetch(`${baseUrl}/api${url}`, {
+  // Use relative URL for client-side fetch (proxied by Nitro)
+  const response = await fetch(`/api${url}`, {
     credentials: 'include',
   })
   
